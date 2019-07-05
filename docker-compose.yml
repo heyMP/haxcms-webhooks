@@ -1,0 +1,13 @@
+version: '2'
+services:
+  server:
+    build: ${WEBHOOKS_PATH}/server
+    labels:
+      - "traefik.enable=true" # Enable reverse-proxy for this service
+      - "traefik.frontend.rule=Host:webhooks.${HOST}"
+      - "traefik.port=3000"
+  
+  db:
+    build: ${WEBHOOKS_PATH}/db
+    ports:
+      - 6379:6379

@@ -1,0 +1,6 @@
+version: '2'
+services:
+  ngrok:
+    build: ./ngrok
+    ports:
+      - 4040:4040
